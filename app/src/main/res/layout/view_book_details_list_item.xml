@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/tvTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start|bottom"
+        android:text="@string/title"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:textColor="@color/grey"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvCountry"
+        tools:text="@string/title" />
+
+    <TextView
+        android:id="@+id/tvAuthorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start|bottom"
+        android:text="@string/author"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleLabel" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:textColor="@color/grey"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAuthorLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvCountry"
+        tools:text="@string/author" />
+
+    <TextView
+        android:id="@+id/tvYearLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start|bottom"
+        android:text="@string/year"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorLabel" />
+
+    <TextView
+        android:id="@+id/tvYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:textColor="@color/grey"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvYearLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvCountry"
+        tools:text="@string/year" />
+
+    <TextView
+        android:id="@+id/tvCountryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="start|bottom"
+        android:text="@string/country"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYearLabel" />
+
+    <TextView
+        android:id="@+id/tvCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="start|bottom"
+        android:textColor="@color/grey"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCountryLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvCountryLabel"
+        tools:text="@string/country" />
+
+    <View
+        android:id="@+id/titleDividerNoCustom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/lightGrey"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
