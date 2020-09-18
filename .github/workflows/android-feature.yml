@@ -5,13 +5,13 @@ on:
   push:
     branches:
       - '*'
-      - '!master'
-      - '!release*'
+      - 'master'
+      - 'release*'
       
 jobs:
   test:
     name: Run Unit Tests
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
