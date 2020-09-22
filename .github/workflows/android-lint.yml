@@ -18,6 +18,8 @@ jobs:
         with:
           java-version: 1.8
       - run: ./gradlew lintDebug
-        with:
-          name: list-results
-          path: app/build/reports/lint-results.xml
+      - name: Upload Lint Results
+         uses: actions/upload-artifact@v1
+         with:
+           name: lint-results
+           path: app/build/reports/lint-results.xml
