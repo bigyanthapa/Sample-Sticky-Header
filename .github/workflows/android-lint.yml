@@ -18,3 +18,6 @@ jobs:
         with:
           java-version: 1.8
       - run: ./gradlew lintDebug
+        with:
+          name: list-results
+          path: app/build/reports/lint-results.xml
