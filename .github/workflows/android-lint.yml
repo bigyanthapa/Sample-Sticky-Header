@@ -10,7 +10,9 @@ on:
 
 jobs:
   android_lint:
+    name: Lint Check
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v1
       - name: Set Up JDK 1.8
@@ -20,7 +22,7 @@ jobs:
       - name: Lint Debug Flavor
         run: ./gradlew lintDebug --stacktrace
       - name: Upload Lint Results
-         uses: actions/upload-artifact@v1
-         with:
-           name: app
-           path: app/build/reports/lint-results-debug.html
+        uses: actions/upload-artifact@v1
+        with:
+          name: app
+          path: app/build/reports/lint-results-debug.html
