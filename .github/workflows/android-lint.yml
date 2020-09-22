@@ -17,9 +17,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: ./gradlew lintDebug
+      - name: Lint Debug Flavor
+        run: ./gradlew lintDebug --stacktrace
       - name: Upload Lint Results
          uses: actions/upload-artifact@v1
          with:
-           name: lint-results
-           path: app/build/reports/lint-results.xml
+           name: app
+           path: app/build/reports/lint-results-debug.html
