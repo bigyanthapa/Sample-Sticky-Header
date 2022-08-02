@@ -1,7 +1,6 @@
 package com.concept.stickyheader
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,7 @@ import com.concept.stickyheader.utils.StickyHeaderDecoration
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val bookAdapter = BookAdapter()
+    private lateinit var bookAdapter : BookAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        bookAdapter = BookAdapter(this)
         val books: List<Book> = JsonUtils.getItems(this)
         val groupedBooks: Map<Char, List<Book>> =
             books.groupBy { book -> book.title.first().toUpperCase() }
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.bookList.adapter = bookAdapter
     }
 
-    class BookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class BookAdapter(val activity: AppCompatActivity) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private var bookHeaders: List<Char> = listOf()
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
             val viewBinding: ViewListItemBinding =
                 ViewListItemBinding.inflate(layoutInflater, parent, false)
-            return BookViewHolder(viewBinding)
+            return BookViewHolder(viewBinding, activity)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -70,7 +70,10 @@ class MainActivity : AppCompatActivity() {
             ""
         }
 
-        inner class BookViewHolder(private val viewBinding: ViewListItemBinding) :
+        inner class BookViewHolder(
+            private val viewBinding: ViewListItemBinding,
+            val activity: AppCompatActivity
+        ) :
             RecyclerView.ViewHolder(viewBinding.root) {
 
             fun bind(header: Char) {

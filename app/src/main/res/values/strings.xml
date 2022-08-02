@@ -13,4 +13,5 @@
     <string name="author">Author:</string>
     <string name="year">Year:</string>
     <string name="country">Country:</string>
+    <string name="title_activity_vertical_text">VerticalTextActivity</string>
 </resources>
